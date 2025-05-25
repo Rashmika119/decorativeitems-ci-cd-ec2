@@ -99,7 +99,7 @@ export default function HeroSection() {
             </div>
             <div className="lg:w-1/2 relative h-96 lg:h-full">
               <img 
-                src="./public/assets/image.png" 
+                src="/assets/image.png" 
                 alt="Featured decoration" 
                 className="w-full h-full object-cover"
               />
