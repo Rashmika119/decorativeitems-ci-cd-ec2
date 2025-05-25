@@ -1,12 +1,37 @@
-# React + Vite
+🚀 Automated CI/CD for React.js with Docker, AWS (ECR & EC2), and NGINX
+This project demonstrates a complete CI/CD pipeline for a React.js frontend application, using Docker, GitHub Actions, Amazon ECR, EC2, and NGINX to ensure smooth and secure deployments.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🔧 Key Features
+⚙️ Docker Image Build & Push to Amazon ECR
+Automatically builds a Docker image on each push to the main branch.
 
-Currently, two official plugins are available:
+Uses GitHub Actions to automate the build and push process.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Docker images are securely pushed to Amazon Elastic Container Registry (ECR).
 
-## Expanding the ESLint configuration
+AWS credentials are stored securely using GitHub repository secrets.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+☁️ Deployment to EC2 with NGINX
+Once pushed to ECR, the Docker image is deployed to an EC2 instance.
+
+An NGINX server on the EC2 instance serves the built React application.
+
+Ensures the latest version of the app is always available to users.
+
+🧪 Quality & Security Enhancements
+Integrated vulnerability scanning in the pipeline to detect security issues in Docker images.
+
+Applied branch protection rules on the main branch:
+
+Requires pull request reviews.
+
+Ensures all status checks pass before merging.
+
+🏷️ Automated Semantic Version Tagging
+This project includes a script (git_update.sh) for automated semantic versioning:
+
+Supports version types: major, minor, and patch.
+
+Automatically calculates the next version based on Git tags.
+
+Tags the current commit and pushes the tag to the repository.
